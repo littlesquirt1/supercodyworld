@@ -1,10 +1,14 @@
-const http = require('http');
-var port = process.env.PORT;
+var http = require('http'),
+fs = require('fs');
 
-const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end('Hi, World!');
-}
 
-const server = http.createServer(requestListener);
-server.listen(port);
+fs.readFile('./index.html', function (err, html) {
+    if (err) {
+        throw err; 
+    }       
+    http.createServer(function(request, response) {  
+        response.writeHeader(200, {"Content-Type": "text/html"});  
+        response.write(html);  
+        response.end();  
+    }).listen(8000);
+});
