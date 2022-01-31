@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npx httpserver"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "fs": "0.0.1-security",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "httpserver": "^0.3.0"
   }
 }
